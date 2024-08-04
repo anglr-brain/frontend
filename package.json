@@ -6,8 +6,7 @@
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "test:ng": "npm run test --no-watch --no-progress",
+        "test": "ng test --watch=false",
         "lint": "eslint .",
         "stylelint": "stylelint '**/*.scss'"
     },
