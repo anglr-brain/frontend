@@ -1,16 +1,20 @@
 module.exports = function (config) {
   config.set({
+    basePath: "",
     frameworks: ["jasmine", "@angular-devkit/build-angular"],
     plugins: [
-      "karma-jasmine",
-      "karma-coverage",
-      "karma-jasmine-html-reporter",
-      "@angular-devkit/build-angular/plugins/karma",
-      "karma-puppeteer-launcher",
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-jasmine-html-reporter"),
+      require("karma-coverage"),
+      require("@angular-devkit/build-angular/plugins/karma"),
     ],
-    browsers: ["Puppeteer"],
     client: {
+      jasmine: {},
       clearContext: false,
+    },
+    jasmineHtmlReporter: {
+      suppressAll: true,
     },
     coverageReporter: {
       dir: require("path").join(__dirname, "./coverage/frontend"),
@@ -22,6 +26,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
+    browsers: ["ChromeHeadlessNoSandbox"],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox"],
+      },
+    },
     singleRun: false,
     restartOnFileChange: true,
   });
