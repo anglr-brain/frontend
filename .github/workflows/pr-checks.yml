@@ -30,6 +30,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: lint
     steps:
       - name: Checkout code
@@ -50,5 +51,5 @@ jobs:
         run: |
           export DISPLAY=:99.0
           Xvfb :99 -screen 0 1280x1024x24 &
-          npm test --no-watch
+          npm run test
           continue-on-error: false
