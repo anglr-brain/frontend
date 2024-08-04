@@ -40,7 +40,6 @@
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
         "postcss-scss": "^4.0.9",
-        "puppeteer": "^22.15.0",
         "stylelint": "^15.0.0",
         "typescript": "^5.5.4"
     }
